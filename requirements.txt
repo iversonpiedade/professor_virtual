@@ -1,3 +1,6 @@
 openai
 streamlit
 streamlit-chat
+deta
+streamlit-authenticator
+python-dotenv
