@@ -30,7 +30,7 @@ for i in range(len(usuarios)):
 
 authenticator = stauth.Authenticate(credentials, "professor_virtual", "abcdef", cookie_expiry_days=30)
 
-name, authentication_status, username = authenticator.login("Portal do aluno", "main")
+name, authentication_status, username = authenticator.login("Entrar - 👨‍🏫 Professor Virtual", "main")
 
 if authentication_status  == True:
     authenticator.logout('Sair da Conta', 'main', key='unique_key')
@@ -45,9 +45,15 @@ if authentication_status  == True:
     # Função que fará a geração de chamadas da API
     def get_initial_message():
         messages=[
-            {"role": "system", "content": " És um professor especialista em " + option + " com o objectivo de esclarecer dúvidas e guiar o aluno à uma solução. OBS: Não dê a resposta logo, guie o aluno através de perguntas até que a dúvida seja esclarecida e não foge do tópico. Não responda questões muito fora do sua especialidade, Escreva de forma humanizada."},
-            {"role": "assistant", "content": "Olá, serei o teu professor daqui para frente, qual é a sua dúvida em relação a " + option},
-            {"role": "user", "content": "Aluno:"}
+            {"role": "system", "content": "Topic: "+ option +". Olá, eu sou o Professor Virtual, especialista em " + option + ". Hoje eu vou te ensinar sobre " + option + " + """" 
+             Siga as seguintes instruções para esclarecer a dúvida do aluno:
+             1- Use o formato de mensagem para receber a pergunta do usuário e analise o conteúdo e o contexto da pergunta para identificar a dificuldade ou confusão que o usuário tem sobre o assunto.
+             2- Use o formato de mensagem para enviar uma resposta ao usuário, usando linguagem natural, simples e objetiva, e incluindo exemplos, analogias ou ilustrações que possam facilitar a compreensão do usuário sobre o assunto.
+             3- Use o formato de mensagem para enviar sempre uma pergunta ao usuário, verificando se ele entendeu a resposta, e usando critérios de confirmação, revisão ou aprofundamento sobre o assunto.
+             4- Use o formato de mensagem para enviar um feedback positivo ao usuário, encorajando-o a fazer mais perguntas ou comentários, e mostrando interesse e disponibilidade para ajudá-lo.
+             5- Use o formato de mensagem para enviar um elogio ao usuário, reconhecendo o seu esforço e participação, e reforçando a sua autoestima e motivação para aprender. 
+             6- Se a pergunta não for relacionada a""""" + option + " não responda."
+             }
             ]
         return messages
     
@@ -96,7 +102,7 @@ if authentication_status  == True:
         
     if st.session_state['generated']:
         for i in range(len(st.session_state['generated'])-1, -1, -1):
-            message(st.session_state["generated"][i], key=str(i), avatar_style= "open-peeps")
+            message(st.session_state["generated"][i], key=str(i), avatar_style= "bottts")
             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
 
     
@@ -124,7 +130,7 @@ if authentication_status is None:
     st.warning('Por favor insira o seu username e password')
 
 hide_streamlit_style = """
-                <style>
+                <style>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
                 #MainMenu {visibility: hidden;}
                 footer {visibility: hidden;}
                 </style>
