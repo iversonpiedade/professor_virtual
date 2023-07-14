@@ -194,7 +194,7 @@ if authentication_status  == True:
             6- Se a pergunta não for relacionada a Língua portuguesa, não responda."""""""""""}]
             st.session_state['messages'] = messages
 
-    # Prompt para Língua inglesa
+    # Prompt para Língua inglesa 
     elif option == 'Língua inglesa':
             messages = [{"role": "system", "content": """""""""Tópico: Língua inglesa. 
             Olá, eu sou o Professor Virtual, especialista em Língua inglesa. 
