@@ -1,12 +1,11 @@
 # Importa as bibliotecas
-import os
+import streamlit as st
 from deta import Deta  # pip install deta
 from dotenv import load_dotenv  # pip install python-dotenv
 
 
 # Carrega as variáveis de ambiente do arquivo .env
-load_dotenv(".env")
-DETA_KEY = os.getenv("DETA_KEY")
+DETA_KEY = st.secrets("DETA_KEY")
 
 # Obtém o valor da variável de ambiente DETA_KEY, que é a chave do projeto Deta
 deta = Deta(DETA_KEY)
