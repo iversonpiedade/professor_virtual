@@ -22,8 +22,8 @@ names = [usuario["nome"] for usuario in alunos]
 # Extrai as listas de chaves, nomes e senhas criptografadas dos usuários
 senhas_criptografadas = [usuario["senha"] for usuario in alunos]
 
-""" Cria um dicionário com as credenciais dos usuários em um formato 
- compatível com o módulo Streamlit-Authenticator """
+# Cria um dicionário com as credenciais dos usuários em um formato 
+# compatível com o módulo Streamlit-Authenticator 
 credentials = {"usernames": {}}
 for i in range(len(usuarios)):
     credentials["usernames"][usuarios[i]] = {
@@ -31,12 +31,12 @@ for i in range(len(usuarios)):
         "password": senhas_criptografadas[i]
     }
 
-""" Cria um objeto que permite adicionar um componente de autenticação 
- para validar as credenciais dos usuários """
+# Cria um objeto que permite adicionar um componente de autenticação 
+# para validar as credenciais dos usuários 
 authenticator = stauth.Authenticate(credentials, "professor_virtual", "abcdef", cookie_expiry_days=30)
 
-""" Renderiza um widget de login (formulário) na aplicação e retorna o nome,
- o status de autenticação e o nome de usuário do usuário que tentou fazer login """
+# Renderiza um widget de login (formulário) na aplicação e retorna o nome,
+# o status de autenticação e o nome de usuário do usuário que tentou fazer login 
 name, authentication_status, username = authenticator.login("Entrar - 👨‍🏫 Professor Virtual", "main")
 
 # Verifica se o usuário está autenticado
