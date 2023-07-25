@@ -15,4 +15,5 @@ senhas_criptografadas = stauth.Hasher(senhas).generate()
 # Itera sobre as três listas ao mesmo tempo
 for (usuarios, nomes, senhas_criptografadas) in zip(usuarios, nomes, senhas_criptografadas):
     db.inserir_usuario(usuarios, nomes, senhas_criptografadas)
+  
     
