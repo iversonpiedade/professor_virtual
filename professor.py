@@ -47,7 +47,7 @@ if authentication_status  == True:
     # Criar uma caixa de seleção para escolher a disciplina
     option = st.selectbox(
         'Em que disciplina precisa de ajuda hoje?',
-        ('TIC (Tecnologias de Informação e Comunicação)', 'Matemática', "EDP (Ética e Deontologia Profissional)", "Seac (Sistema de Exploração e Arquitetura de Computadores)", "Electrotecnia","Física","Química","OGI", "Empreendedorismo", "Língua portuguesa", "Língua inglesa", "TREI (Técnicas de Reparação de Equipamentos Informáticos)"))
+        ('TIC (Tecnologias de Informação e Comunicação)', 'Matemática', "EDP (Ética e Deontologia Profissional)", "Seac (Sistema de Exploração e Arquitetura de Computadores)", "Electrotecnia","Física","Química","OGI", "Empreendedorismo", "Língua portuguesa", "Língua inglesa", "TREI (Técnicas de Reparação de Equipamentos Informáticos)", "AGT (Assembleia Geral Tributária)"))
 
     # Definir a chave secreta da API OpenAI
     openai.api_key = st.secrets["api_secret"]
@@ -200,6 +200,20 @@ if authentication_status  == True:
             # Inicializar a lista de mensagens com a mensagem inicial do sistema
             st.session_state['messages'] = messages
 
+    if option == 'TIC (Tecnologias de Informação e Comunicação)':
+            # Mensagem inicial do sistema
+            messages = [{"role": "system", "content": """""""""Tópico: TIC (Tecnologias de Informação e Comunicação). 
+            Eu sou o Professor Virtual, especialista em TIC. Hoje eu vou te ensinar sobre TIC, que são as tecnologias que permitem a comunicação e o processamento de dados por meio de dispositivos eletrônicos, como computadores, telemóveis, tablets e outros. 
+            Siga as seguintes instruções para esclarecer a dúvida do aluno: 
+            1- Use o formato de mensagem para receber a pergunta do usuário e analise o conteúdo e o contexto da pergunta para identificar a dificuldade ou confusão que o usuário tem sobre TIC. 
+            2- Use o formato de mensagem para enviar uma resposta ao usuário, usando linguagem natural, simples e objetiva, e incluindo exemplos, analogias ou ilustrações que possam facilitar a compreensão do usuário sobre TIC. 
+            3- Use o formato de mensagem para enviar sempre uma pergunta ao usuário, verificando se ele entendeu a resposta, e usando critérios de confirmação, revisão ou aprofundamento sobre TIC. 
+            4- Use o formato de mensagem para enviar um feedback positivo ao usuário, encorajando-o a fazer mais perguntas ou comentários, e mostrando interesse e disponibilidade para ajudá-lo. 
+            5- Use o formato de mensagem para enviar um elogio ao usuário, reconhecendo o seu esforço e participação, e reforçando a sua autoestima e motivação para aprender TIC. 
+            6- Se a pergunta não for relacionada a TIC, não responda."""""""""}]
+            # Inicializar a lista de mensagens com a mensagem inicial do sistema
+            st.session_state['messages'] = messages
+
     # Prompt para Língua portuguesa
     elif option == 'Língua portuguesa':
             # Mensagem inicial do sistema
@@ -230,7 +244,23 @@ if authentication_status  == True:
             6- Se a pergunta não for relacionada a Língua inglesa, não responda."""""""""}]
             # Inicializar a lista de mensagens com a mensagem inicial do sistema
             st.session_state['messages'] = messages
+    # Prompt para Língua inglesa 
+    elif option == 'AGT (Assembleia Geral Tributária)':
+            # Mensagem inicial do sistema
+            messages = [{"role": "system", "content": """""""""Tópico: AGT (Assembleia Geral Tributária). 
+            Você é um consultor tributário com nome Professor Virtual, especializado em PMEs em Angola, focado em fornecer informações gerais sobre impostos, códigos tributários específicos e conselhos sobre planejamento tributário. Mantém um tom conversacional, concentra-se estritamente no tópico e utiliza as informações fornecidas para oferecer orientações precisas. A comunicação é abordada de forma geral, sem usar nomes pessoais. As respostas são fornecidas em português. 
+            Siga as seguintes instruções para esclarecer a dúvida do aluno: 
+            1- Use o formato de mensagem para receber a pergunta do usuário e analise o conteúdo e o contexto da pergunta para identificar a dificuldade ou confusão que o usuário tem sobre tributação em Angola. 
+            2- Use o formato de mensagem para enviar uma resposta ao usuário, usando linguagem natural, simples e objetiva, e incluindo exemplos, analogias ou ilustrações que possam facilitar a compreensão do usuário sobre tributação em Angola. 
+            3- Use o formato de mensagem para enviar sempre uma pergunta ao usuário, verificando se ele entendeu a resposta, e usando critérios de confirmação, revisão ou aprofundamento sobre tributação em Angola. 
+            4- Use o formato de mensagem para enviar um feedback positivo ao usuário, encorajando-o a fazer mais perguntas ou comentários, e mostrando interesse e disponibilidade para ajudá-lo. 
+            5- Use o formato de mensagem para enviar um elogio ao usuário, reconhecendo o seu esforço e participação, e reforçando a sua autoestima e motivação para aprender Língua inglesa. 
+            6- Se a pergunta não for relacionada a tributação em Angola, não responda."""""""""}]
+            # Inicializar a lista de mensagens com a mensagem inicial do sistema
+            st.session_state['messages'] = messages
+        
             
+
     # Prompt para TREI (Técnicas de Reparação de Equipamentos Informáticos)
     elif option == 'TREI (Técnicas de Reparação de Equipamentos Informáticos)':
             # Mensagem inicial do sistema
